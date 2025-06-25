@@ -70,7 +70,7 @@ presplash.filename = %(source.dir)s/presplash.png
 # android.adb_path =
 
 # (str) Path to your Android SDK's tools/bin folder
-# android.sdk_path =
+android.sdk_path = $ANDROIDSDK
 
 # (str) Path to the debug keystore
 # android.debug_keystore =
