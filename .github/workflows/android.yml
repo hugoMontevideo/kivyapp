@@ -27,6 +27,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install Cython==0.29.36 buildozer
 
+
+
+
+      - name: Install Python tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install --user Cython==0.29.36
+          pip install --user buildozer
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+    
+          
+
       - name: Install Android SDK
         run: |
           mkdir -p "$HOME"/android-sdk/cmdline-tools
