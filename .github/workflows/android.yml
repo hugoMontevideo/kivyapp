@@ -33,5 +33,8 @@ jobs:
       - name: Initialize Buildozer spec
         run: buildozer init || true
 
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses || true
+
       - name: Build Android APK
         run: buildozer android debug
