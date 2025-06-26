@@ -71,10 +71,10 @@ jobs:
       - name: List build-tools versions (debug)
         run: ls -lh $HOME/android-sdk/build-tools || true
 
-      - name: Check git version and path (debug)
+      - name: Check git installation and path (debug)
         run: |
-          which git
-          git --version
+          which git || true
+          git --version || true
           echo $PATH
 
       - name: Build APK
@@ -91,4 +91,3 @@ jobs:
         with:
           name: kivy-apk
           path: bin/*.apk
-
