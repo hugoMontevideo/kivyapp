@@ -50,8 +50,8 @@ jobs:
             "platforms;android-30" \
             "build-tools;30.0.3"
 
-      - name: Initialize Buildozer spec
-        run: buildozer init || true
+      - name: Clean previous buildozer state
+        run: rm -rf .buildozer bin
 
       - name: Build APK
         run: buildozer android debug
