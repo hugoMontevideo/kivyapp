@@ -37,7 +37,6 @@ jobs:
           wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
           unzip cmdline-tools.zip
           mv cmdline-tools latest
-
           echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
           echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
           echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
@@ -49,6 +48,9 @@ jobs:
             "platform-tools" \
             "platforms;android-30" \
             "build-tools;30.0.3"
+
+      - name: Remove cached Android SDK (prevent version conflicts)
+        run: rm -rf $HOME/.buildozer/android/platform/android-sdk
 
       - name: Clean previous buildozer state
         run: rm -rf .buildozer bin
