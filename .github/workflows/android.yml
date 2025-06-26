@@ -25,7 +25,7 @@ jobs:
           sudo apt update
           sudo apt install -y zip unzip openjdk-17-jdk python3-pip libgl1-mesa-dev git
 
-      - name: Install Cython, Buildozer, and p4a
+      - name: Install Cython, Buildozer, and python-for-android
         run: |
           python -m pip install --upgrade pip
           pip install Cython==0.29.36 buildozer "python-for-android==2024.1.21"
@@ -71,12 +71,18 @@ jobs:
       - name: List build-tools versions (debug)
         run: ls -lh $HOME/android-sdk/build-tools || true
 
+      - name: Check git version and path (debug)
+        run: |
+          which git
+          git --version
+          echo $PATH
+
       - name: Build APK
         env:
           ANDROIDNDK: ${{ env.HOME }}/android-ndk-r25b
           ANDROID_NDK_HOME: ${{ env.HOME }}/android-ndk-r25b
           ANDROID_HOME: ${{ env.HOME }}/android-sdk
-          PATH: ${{ env.PATH }}:${{ env.HOME }}/android-ndk-r25b:${{ env.HOME }}/android-sdk/build-tools/30.0.3:${{ env.HOME }}/android-sdk/platform-tools:${{ env.HOME }}/android-sdk/cmdline-tools/latest/bin
+          PATH: /usr/bin:${{ env.PATH }}:${{ env.HOME }}/android-ndk-r25b:${{ env.HOME }}/android-sdk/build-tools/30.0.3:${{ env.HOME }}/android-sdk/platform-tools:${{ env.HOME }}/android-sdk/cmdline-tools/latest/bin
         run: |
           buildozer -v android debug
 
@@ -85,3 +91,4 @@ jobs:
         with:
           name: kivy-apk
           path: bin/*.apk
+
