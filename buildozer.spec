@@ -15,8 +15,8 @@ android.permissions = INTERNET
 # Forcer les versions compatibles
 android.api = 30
 android.minapi = 21
-android.ndk = 23b
-android.ndk_api = 21
+android.ndk = 25b
+android.ndk_path = /home/runner/android-ndk-r25b
 android.build_tools = 30.0.3
 android.accept_sdk_license = true
 android.copy_libs = 1

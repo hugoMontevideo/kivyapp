@@ -50,6 +50,14 @@ jobs:
             "build-tools;30.0.3" \
             "build-tools;36.0.0"
 
+      - name: Download and extract Android NDK r25b
+        run: |
+          wget https://dl.google.com/android/repository/android-ndk-r25b-linux.zip
+          unzip android-ndk-r25b-linux.zip -d $HOME
+          echo "ANDROIDNDK=$HOME/android-ndk-r25b" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$HOME/android-ndk-r25b" >> $GITHUB_ENV
+          echo "$HOME/android-ndk-r25b" >> $GITHUB_PATH
+
       - name: Copy SDK licenses to buildozer path
         run: |
           mkdir -p $HOME/.buildozer/android/platform/android-sdk/licenses
@@ -64,9 +72,12 @@ jobs:
         run: ls -lh $HOME/android-sdk/build-tools || true
 
       - name: Build APK
+        env:
+          ANDROIDNDK: ${{ env.HOME }}/android-ndk-r25b
+          ANDROID_NDK_HOME: ${{ env.HOME }}/android-ndk-r25b
+          ANDROID_HOME: ${{ env.HOME }}/android-sdk
+          PATH: ${{ env.PATH }}:${{ env.HOME }}/android-ndk-r25b:${{ env.HOME }}/android-sdk/build-tools/30.0.3:${{ env.HOME }}/android-sdk/platform-tools:${{ env.HOME }}/android-sdk/cmdline-tools/latest/bin
         run: |
-          export ANDROID_HOME=$HOME/android-sdk
-          export PATH=$PATH:$HOME/android-sdk/build-tools/30.0.3:$HOME/android-sdk/platform-tools:$HOME/android-sdk/cmdline-tools/latest/bin
           buildozer -v android debug
 
       - name: Upload APK
