@@ -47,7 +47,8 @@ jobs:
           yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager \
             "platform-tools" \
             "platforms;android-30" \
-            "build-tools;30.0.3"
+            "build-tools;30.0.3" \
+            "build-tools;36.0.0"
 
       - name: Remove cached Android SDK (prevent version conflicts)
         run: rm -rf $HOME/.buildozer/android/platform/android-sdk
