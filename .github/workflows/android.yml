@@ -28,7 +28,7 @@ jobs:
       - name: Install Cython, Buildozer, and p4a
         run: |
           python -m pip install --upgrade pip
-          pip install Cython==0.29.36 buildozer "python-for-android==2024.03.03"
+          pip install Cython==0.29.36 buildozer "python-for-android==2024.1.21"
 
       - name: Set up Android SDK cmdline-tools
         run: |
