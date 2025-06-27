@@ -24,7 +24,7 @@ android.copy_libs = 1
 bootstrap = sdl2
 requirements = python3,kivy,python-for-android==2024.1.21
 
-icon.filename = %(source.dir)s/icon.png
+# icon.filename = %(source.dir)s/icon.png #add later
 presplash.filename = %(source.dir)s/presplash.png
 
 [buildozer]
