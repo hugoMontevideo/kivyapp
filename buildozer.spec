@@ -2,7 +2,7 @@
 
 title = MyKivyApp
 package.name = mykivyapp
-package.domain = org.example
+package.domain = org.example   # org.example.mykivyapp
 
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
@@ -22,7 +22,7 @@ android.accept_sdk_license = true
 android.copy_libs = 1
 
 bootstrap = sdl2
-requirements = python3,kivy,python-for-android==2024.1.21
+requirements = python3,kivy,python-for-android==2024.1.21,plyer
 
 # icon.filename = %(source.dir)s/icon.png #add later
 # presplash.filename = %(source.dir)s/presplash.png #add later
