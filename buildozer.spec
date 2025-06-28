@@ -2,7 +2,7 @@
 
 title = MyKivyApp
 package.name = mykivyapp
-package.domain = org.example   # org.example.mykivyapp
+package.domain = org.example   
 
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
