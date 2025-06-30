@@ -25,7 +25,7 @@ android.accept_sdk_license = true
 android.copy_libs = 1
 
 bootstrap = sdl2
-requirements = python3,kivy,hostypython3,setuptools,python-for-android==2024.1.21,plyer
+requirements = python3,kivy,hostpython3,setuptools,python-for-android==2024.1.21,plyer
 
 # icon.filename = %(source.dir)s/icon.png #add later
 # presplash.filename = %(source.dir)s/presplash.png #add later
