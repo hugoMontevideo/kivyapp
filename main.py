@@ -3,6 +3,8 @@ from kivy.uix.label import Label
 from plyer import gps
 from kivy.utils import platform
 from kivy.clock import Clock
+from android.permissions import request_permissions, Permission
+request_permissions([Permission.ACCESS_FINE_LOCATION])
 
 
 class GpsApp(App):
