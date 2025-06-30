@@ -12,7 +12,7 @@ orientation = portrait
 fullscreen = 1
 
 android.permissions = ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION,INTERNET
-android.features = android.hardware.location.gps
+#android.features = android.hardware.location.gps
 android.services=gps
 
 # Forcer les versions compatibles
